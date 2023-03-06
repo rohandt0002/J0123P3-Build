@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "name": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "genre": "Fantasy",
+      "price": "12.99",
+      "publisher": "Houghton Mifflin"
+    },
+    {
+      "id": "2",
+      "name": "The Land Before Time",
+      "author": "Alan Moore",
+      "genre": "Fantasy",
+      "price": "12.99",
+      "publisher": "Houghton Mifflin"
+    },
+    {
+      "id": "3",
+      "name": "The Land Before Time",
+      "author": "Alan Moore",
+      "genre": "Fantasy",
+      "price": "12.99",
+      "publisher": "Houghton Mifflin"
+    }
+  ]
+}
