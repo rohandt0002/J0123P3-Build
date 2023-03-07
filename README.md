@@ -51,12 +51,12 @@ missed by renewal && subscription date >> 150/-
 # Routes and Endpoints
 
 ## /users
-POST: Create a new user
-GET: Get all the user info here
+POST: Creating a new user
+GET: Get all the users
 
 ## /users/{id}
-GET: Get a user by id
-PUT: Update a user by their ID
+GET: Get user by id
+PUT: Updating a user by their ID
 DELETE: Delete a user by id (chk if he/she still have an issued book) && (is there any fine to paid)
 
 ## /users/subscription-details/{id}
@@ -85,3 +85,27 @@ GET: Get all issued books with their fine
 ## npm init
 ## npm i nodemon --save-dev
 ## npm run dev
+
+
+
+
+...each
+     ## "name": "Jane",
+     ## "surname": "Doe",
+      "email": "user@email.com",
+      "subscriptionType": "Premium",
+      "subscriptionDate": "01/01/2022"
+
+
+...data
+  "data": {
+    ## "name": "rohan",
+    ## "surname": "kinnal"
+  }
+
+name: rohan
+surname: kinnal
+email: user@email.com
+subscriptioType: "Premium"
+
+
