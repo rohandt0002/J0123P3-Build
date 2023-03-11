@@ -5,8 +5,6 @@ const { users } = require("../data/users.json");
 
 const router = express.Router();
 
-
-
 /**
  * Route: /books/:id
  * Method: GET
@@ -30,7 +28,6 @@ router.get("/:id", (req, res) => {
     data: book,
   });
 });
-
 
 /**
  * Route: /books
@@ -79,4 +76,99 @@ router.get("/issued/by-user", (req, res) => {
     data: issuedBooks,
   });
 });
+
+/**
+ * Route: /
+ * Method: POST
+ * Description: Adding a New Book
+ * Access: Public
+ * Parameters: None
+ * Data : id, name, genre, price, publisher, author
+ */
+router.post("/", (req, res) => {
+  const { data } = req.body;
+
+  if (!data) {
+    return res.status(400).json({
+      sucess: false,
+      message: "No Data To Add A Book",
+    });
+  }
+
+  const book = books.find((each) => each.id === data.id);
+  if (book) {
+    return res.status(404).json({
+      success: false,
+      message: "Id Already Exists !!",
+    });
+  }
+  const allBooks = { ...books, data };
+  return res.status(201).json({
+    success: true,
+    message: "Added Book Succesfully",
+    data: allBooks,
+  });
+});
+
+/**
+ * Route: /:id
+ * Method: PUT
+ * Description: Updating a Book By Its ID
+ * Access: Public
+ * Parameters: Id
+ * Data : id, name, genre, price, publisher, author
+ */
+router.put("/updateBook/:id", (req, res) => {
+  const { id } = req.params;
+  const { data } = req.body;
+
+  const book = books.find((each) => each.id === id);
+
+  if (!book) {
+    return res.status(400).json({
+      success: false,
+      message: "Book Not Found For This ID",
+    });
+  }
+
+  const updateData = books.map((each) => {
+    if (each.id === id) {
+      return { ...each, ...data };
+    }
+
+    return each;
+  });
+  return res.status(200).json({
+    success: true,
+    message: "Updated a Book By Their Id",
+    data: updateData,
+  });
+});
+
+// router.put("/updateBook/:id", (req, res) => {
+//   const { id } = req.params;
+//   const { data } = req.body;
+
+//   const book = users.find((each) => each.id === id);
+//   if (!book) {
+//     return res.status(404).json({
+//       success: false,
+//       message: "Book Doesn't Exist !!",
+//     });
+//   }
+//   const updateBookData = users.map((each) => {
+//     if (each.id === id) {
+//       return {
+//         ...each,
+//         ...data,
+//       };
+//     }
+//     return each;
+//   });
+//   return res.status(200).json({
+//     success: true,
+//     message: "Book Updated !!",
+//     data: updateBookData,
+//   });
+// });
 module.exports = router;
