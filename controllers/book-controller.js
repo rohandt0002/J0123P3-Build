@@ -10,7 +10,8 @@ exports.getAllBooks = async (req, res) => {
       message: "No Book Found",
     });
   }
-  res.status(200).json({
+  console.log(data);
+ return  res.status(200).json({
     success: true,
     data: books,
   });
@@ -74,4 +75,6 @@ exports.getAllIssuedBooks = async (req, res) => {
 }
 
 
+
 // module.exports = { getAllBooks, getSingleBookById };
+13 dec 19:21
