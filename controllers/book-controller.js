@@ -1,4 +1,5 @@
 const { UserModel, BookModel } = require("../models");
+const issuedBook = require("../dtos/book-dto.js");
 
 // const getAllBooks = () => {};
 exports.getAllBooks = async (req, res) => {
@@ -77,4 +78,3 @@ exports.getAllIssuedBooks = async (req, res) => {
 
 
 // module.exports = { getAllBooks, getSingleBookById };
-13 dec 19:21
